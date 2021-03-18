@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './app/layout/index.css'
 import App from './app/layout/App'
 import reportWebVitals from './reportWebVitals'
 import { Router } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const history = createBrowserHistory()
 
