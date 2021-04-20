@@ -1,21 +1,33 @@
 import { observer } from 'mobx-react'
 import React from 'react'
-import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
+import { Menu, Header, Button } from 'semantic-ui-react'
+import { history } from '../../index'
 
 const NavBar: React.FC = () => {
   return (
-    <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-      <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#features">Features</Nav.Link>
-        <Nav.Link href="#pricing">Pricing</Nav.Link>
-      </Nav>
-      <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        <Button variant="outline-info">Search</Button>
-      </Form>
-    </Navbar>
+    <Menu inverted fixed="left" vertical size="large">
+      <Menu.Item>
+        <Header as="h1" color="blue">
+          Hey, I'm Antoine
+        </Header>
+      </Menu.Item>
+      <Menu.Item>
+        <Button icon="user circle" size='massive'></Button>
+      </Menu.Item>
+      <Menu.Item>
+        <Button icon="line graph" size="massive"></Button>
+      </Menu.Item>
+      <Menu.Item>
+        <Button icon="computer" size="massive"></Button>
+      </Menu.Item>
+      <Menu.Item>
+        <Button icon="graduation cap" size="massive"></Button>
+      </Menu.Item>
+      <Menu.Item>
+        <Button icon="address card outline" size="massive"></Button>
+      </Menu.Item>
+    </Menu>
   )
 }
 

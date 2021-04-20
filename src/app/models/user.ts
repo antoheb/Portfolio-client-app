@@ -1,6 +1,5 @@
 export interface IUser {
     token: string;
-    role: string;
 }
 
 export interface IUserFormValues
