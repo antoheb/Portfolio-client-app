@@ -4,10 +4,11 @@ import { combineValidators, isRequired } from 'revalidate'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { ErrorMessage } from '../../../app/common/form/ErrorMessage'
 import { RootStoreContext } from '../../../app/stores/rootStore'
-import { Field, Form as FinalForm } from "react-final-form";
+import { Field, Form as FinalForm } from 'react-final-form'
 import { IProject } from '../../../app/models/project'
-import { FORM_ERROR } from 'final-form';
+import { FORM_ERROR } from 'final-form'
 import { TextInput } from '../../../app/common/form/TextInput'
+import { TextAreaInput } from '../../../app/common/form/TextAreaInput';
 
 const AddProjectForm: React.FC = () => {
   const validate = combineValidators({
@@ -22,10 +23,10 @@ const AddProjectForm: React.FC = () => {
   return (
     <Grid centered style={{ marginTop: '30px' }}>
       <Grid.Column>
-        <Header as="h1" textAlign="center">
-          Insert a new Project 
-        </Header>
         <Segment clearing>
+          <Header as="h3" textAlign="center">
+            Add New Project
+          </Header>
           <FinalForm
             validate={validate}
             onSubmit={(values: IProject) =>
@@ -50,17 +51,17 @@ const AddProjectForm: React.FC = () => {
                         component={TextInput}
                       />
                     </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row>
+                  </Grid.Row>
+                  <Grid.Row>
                     <Grid.Column>
                       <Field
                         placeholder="Description"
                         name="description"
-                        component={TextInput}
+                        component={TextAreaInput}
                       />
                     </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Row>
+                  </Grid.Row>
+                  <Grid.Row>
                     <Grid.Column>
                       <Field
                         placeholder="GitHub Link"
@@ -82,9 +83,8 @@ const AddProjectForm: React.FC = () => {
                         disabled={
                           (invalid && !dirtySinceLastSubmit) || pristine
                         }
-                        float="left"
-                        basic
-                        color="teal"
+                        fluid
+                        color="blue"
                         type="submit"
                         content="CREATE"
                       />

@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react'
 import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
+import { Header, Icon } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { IProjectFormValues } from '../../../app/models/project'
 import { RootStoreContext } from '../../../app/stores/rootStore'
@@ -25,7 +26,6 @@ const ProjectPage: React.FC<IProps> = ({ match }) => {
   }, [loadProjectList])
 
   useEffect(() => {
-    setLoading(true)
     if (match.params.id) {
       loadProject(match.params.id)
         .then((proj) => setProject(proj))
@@ -40,6 +40,13 @@ const ProjectPage: React.FC<IProps> = ({ match }) => {
   return (
     <Fragment>
       <div>
+        <Header as="h1">
+          <Icon name="computer" color="blue" />
+          <Header.Content>
+            My Projects
+            <Header.Subheader>Projects accomplish during my DEC</Header.Subheader>
+          </Header.Content>
+        </Header>
         <ProjectList projectList={projectList!} />
         {match.params.id ? (
           <EditProjectForm project={project!} id={match.params.id} />

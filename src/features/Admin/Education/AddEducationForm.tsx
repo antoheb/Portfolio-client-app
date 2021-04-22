@@ -3,41 +3,36 @@ import React, { useContext } from 'react'
 import { combineValidators, isRequired } from 'revalidate'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { ErrorMessage } from '../../../app/common/form/ErrorMessage'
-import { TextInput } from '../../../app/common/form/TextInput'
-import { IProject } from '../../../app/models/project'
 import { RootStoreContext } from '../../../app/stores/rootStore'
 import { Field, Form as FinalForm } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
-import { history } from '../../../index'
+import { TextInput } from '../../../app/common/form/TextInput'
+import { IEducation } from '../../../app/models/education'
 import { TextAreaInput } from '../../../app/common/form/TextAreaInput';
 
-interface IProps {
-  project: IProject
-  id: string
-}
-
-const EditProjectForm: React.FC<IProps> = ({ project, id }) => {
+const AddEducationForm: React.FC = () => {
   const validate = combineValidators({
-    name: isRequired({ message: 'Name is mandantory' }),
+    schoolName: isRequired({ message: 'School name is mandantory' }),
+    schoolAddress: isRequired({ message: 'School Address is mandantory' }),
+    years: isRequired({ message: 'Years is mandantory' }),
+    program: isRequired({ message: 'The program enrolled is mandantory' }),
     description: isRequired({ message: 'Description is mandantory' }),
-    gitHubLink: isRequired({ message: 'Link is mandantory' }),
   })
 
   const rootStore = useContext(RootStoreContext)
-  const { modifyProject } = rootStore.projectStore
+  const { newEducation } = rootStore.educationStore
 
   return (
     <Grid centered style={{ marginTop: '30px' }}>
       <Grid.Column>
         <Segment clearing>
           <Header as="h3" textAlign="center">
-            Update Project
+            Add New Education
           </Header>
           <FinalForm
-            initialValues={project}
             validate={validate}
-            onSubmit={(values: IProject) =>
-              modifyProject(id, values).catch((error) => ({
+            onSubmit={(values: IEducation) =>
+              newEducation(values).catch((error) => ({
                 [FORM_ERROR]: error,
               }))
             }
@@ -53,8 +48,35 @@ const EditProjectForm: React.FC<IProps> = ({ project, id }) => {
                   <Grid.Row>
                     <Grid.Column>
                       <Field
-                        placeholder="Name of Project"
-                        name="name"
+                        placeholder="School Name"
+                        name="schoolName"
+                        component={TextInput}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Field
+                        placeholder="School Address"
+                        name="schoolAddress"
+                        component={TextInput}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Field
+                        placeholder="Years"
+                        name="years"
+                        component={TextInput}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Field
+                        placeholder="Program enrolled"
+                        name="program"
                         component={TextInput}
                       />
                     </Grid.Column>
@@ -65,15 +87,6 @@ const EditProjectForm: React.FC<IProps> = ({ project, id }) => {
                         placeholder="Description"
                         name="description"
                         component={TextAreaInput}
-                      />
-                    </Grid.Column>
-                  </Grid.Row>
-                  <Grid.Row>
-                    <Grid.Column>
-                      <Field
-                        placeholder="GitHub Link"
-                        name="gitHubLink"
-                        component={TextInput}
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -93,18 +106,7 @@ const EditProjectForm: React.FC<IProps> = ({ project, id }) => {
                         fluid
                         color="blue"
                         type="submit"
-                        content="MODIFY"
-                      />
-                    </Grid.Column>
-                  </Grid.Row>
-                  <Grid.Row columns={1}>
-                    <Grid.Column>
-                      <Button
-                        fluid
-                        onClick={() => history.push('/project')}
-                        basic
-                        color="black"
-                        content="CANCEL"
+                        content="CREATE"
                       />
                     </Grid.Column>
                   </Grid.Row>
@@ -118,4 +120,4 @@ const EditProjectForm: React.FC<IProps> = ({ project, id }) => {
   )
 }
 
-export default observer(EditProjectForm)
+export default observer(AddEducationForm)

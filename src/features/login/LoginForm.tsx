@@ -7,10 +7,10 @@ import {
   isRequired,
 } from "revalidate";
 import { Link } from "react-router-dom";
-import { IUserFormValues } from "../../app/models/user";
 import { FORM_ERROR } from "final-form";
 import { RootStoreContext } from "../../app/stores/rootStore";
 import { ErrorMessage } from '../../app/common/form/ErrorMessage';
+import { IAuthenticationFormValues } from "../../app/models/user";
 
 export const LoginForm = () => {
     const validate = combineValidators({
@@ -31,7 +31,7 @@ export const LoginForm = () => {
         </Header>
         <FinalForm
           validate={validate}
-          onSubmit={(values: IUserFormValues) =>
+          onSubmit={(values: IAuthenticationFormValues) =>
             login(values).catch((error) => ({
               [FORM_ERROR]: error,
             }))

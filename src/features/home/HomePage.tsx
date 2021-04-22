@@ -7,7 +7,7 @@ export const HomePage: React.FC = () => {
   return (
     <Fragment>
       <Grid>
-      <Header>Home Page</Header>
+      <Header as='h1'>Home Page</Header>
       </Grid>
     </Fragment>
   );
