@@ -7,23 +7,9 @@ import EducationPage from '../../features/Admin/Education/EducationPage'
 import ExperiencePage from '../../features/Admin/Experience/ExperiencePage'
 import ProjectPage from '../../features/Admin/Project/ProjectPage'
 import AdminNavBar from '../../features/nav/AdminNavBar'
-import { RootStoreContext } from '../stores/rootStore'
-import { LoadingComponent } from './LoadingComponent'
 import { AdminContactPage } from '../../features/Admin/AdminContactPage'
 
 const AdminLayout: React.FC = () => {
-  const rootStore = useContext(RootStoreContext)
-  const { getUser } = rootStore.userStore
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    getUser().then(() => setLoading(false))
-  }, [getUser, setLoading])
-
-  if (loading) {
-    return <LoadingComponent content="Loading..." />
-  }
-
   return (
     <Fragment>
       <Grid>

@@ -6,27 +6,12 @@ import { history } from '../../index'
 
 const NavBar: React.FC = () => {
   return (
-    <Menu inverted fixed="left" vertical size="large">
-      <Menu.Item>
-        <Header as="h1" color="blue">
-          Hey, I'm Antoine
-        </Header>
-      </Menu.Item>
-      <Menu.Item>
-        <Button icon="user circle" size='massive'></Button>
-      </Menu.Item>
-      <Menu.Item>
-        <Button icon="line graph" size="massive"></Button>
-      </Menu.Item>
-      <Menu.Item>
-        <Button icon="computer" size="massive"></Button>
-      </Menu.Item>
-      <Menu.Item>
-        <Button icon="graduation cap" size="massive"></Button>
-      </Menu.Item>
-      <Menu.Item>
-        <Button icon="address card outline" size="massive"></Button>
-      </Menu.Item>
+    <Menu inverted size="large" >
+      <Menu.Item onClick={() => history.push('/')}>HOME</Menu.Item>
+      <Menu.Item onClick={() => history.push('/about')}>ABOUT</Menu.Item>
+      <Menu.Item onClick={() => history.push('/experience')}>EXPERIENCE</Menu.Item>
+      <Menu.Item onClick={() => history.push('/project')}>PROJECTS</Menu.Item>
+      <Menu.Item onClick={() => history.push('/contact')}>CONTACT</Menu.Item>
     </Menu>
   )
 }
