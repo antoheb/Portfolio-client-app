@@ -1,14 +1,12 @@
 import React, { Fragment } from 'react'
 import { Button } from 'semantic-ui-react'
-import { history } from '../..'
 
 export const HomePage: React.FC = () => {
   return (
-    <Fragment>
+    <section id="#home">
       <div
         style={{
-          backgroundImage:
-            "url('https://wallpaperaccess.com/full/279935.gif')",
+          backgroundImage: "url('https://image.ibb.co/dPHMqH/p25.jpg')",
           backgroundSize: 'cover',
           height: '100vh',
         }}
@@ -17,20 +15,23 @@ export const HomePage: React.FC = () => {
           style={{
             position: 'absolute',
             marginLeft: '35%',
-            marginTop: '1em',
+            marginTop: '5em',
             color: 'white',
             fontSize: '40px',
             textAlign: 'center',
           }}
         >
-          Hello, I'm <span style={{color:'lightsalmon'}}>Antoine Hebert.</span> <br />
-          And this my Portfolio.
+          Hello, I'm{' '}
+          <span style={{ color: 'lightsalmon' }}>Antoine Hebert.</span> <br />
+          And this is my Portfolio.
           <br />
-          <Button color='orange' basic inverted onClick={() => history.push('/about')}>
-            VIEW MY PORTFOLIO -{'>'}
-          </Button>
+          <a className="smoothscroll" href="#about">
+            <Button color="orange" basic inverted>
+              VIEW MY PORTFOLIO -{'>'}
+            </Button>
+          </a>
         </div>
       </div>
-    </Fragment>
+    </section>
   )
 }

@@ -14,6 +14,12 @@ export interface IUser {
     lastName: string;
     dateOfBirth: string;
     aboutMe: string
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+    email: string;
+    phoneNumber: string;
 }
 
 export interface IUserFormValues
@@ -22,4 +28,10 @@ export interface IUserFormValues
     lastName: string;
     dateOfBirth: string;
     aboutMe: string
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+    email: string;
+    phoneNumber: string;
 }

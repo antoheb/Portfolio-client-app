@@ -1,5 +1,5 @@
-import React, { Fragment, useContext } from 'react'
-import { Image, Card, Header, Icon, Grid } from 'semantic-ui-react'
+import React, {useContext } from 'react'
+import { Image, Header, Grid } from 'semantic-ui-react'
 import { RootStoreContext } from '../../app/stores/rootStore'
 import NavBar from '../nav/NavBar'
 
@@ -8,63 +8,40 @@ export const AboutMe: React.FC = () => {
   const { user } = rootStore.userStore
 
   return (
-    <Fragment>
+    <section id="about" style={{ backgroundColor: '#282828' }}>
       <NavBar />
-      <Header
-        style={{ textAlign: 'center', textDecoration: 'underline' }}
-        as="h1"
-      >
-        ABOUT
-      </Header>
-      <Grid style={{ marginTop: '2em' }}>
+      <Grid style={{ paddingTop: '8em', paddingBottom:'8em' }}>
         <Grid.Row>
-          <Grid.Column width={7}>
-            <Card style={{ marginLeft: '10em', width: '390px' }} color="orange">
-              <Image
-                src="https://media-exp1.licdn.com/dms/image/C5603AQEnyLLAR_L5Bw/profile-displayphoto-shrink_200_200/0/1542653790778?e=1623283200&v=beta&t=wQJDlO74zSOb0fZmQnV5hcaQR98zpHEkyOz-q6rfkLw"
-                wrapped
-                ui={false}
-              />
-              <Card.Content>
-                <Card.Header>
-                  {user?.firstName + ' ' + user?.lastName}
-                </Card.Header>
-                <Card.Meta>
-                  <span className="date">{user?.dateOfBirth}</span>
-                </Card.Meta>
-                <Card.Description>
-                  Antoine is a student at Champlain College in Computer Science
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>{user?.aboutMe}</Card.Content>
-            </Card>
+          <Grid.Column width="6">
+            <Image
+              centered
+              src="https://media-exp1.licdn.com/dms/image/C5603AQEnyLLAR_L5Bw/profile-displayphoto-shrink_200_200/0/1542653790778?e=1623283200&v=beta&t=wQJDlO74zSOb0fZmQnV5hcaQR98zpHEkyOz-q6rfkLw"
+              size="small"
+              circular
+            />
           </Grid.Column>
-          <Grid.Column width={9}>
-            <Grid>
-              <Grid.Row style={{ marginBottom: '8em' }}>
-                <Grid.Column>
-                  <Icon name="react" size="huge"></Icon>
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row style={{ marginBottom: '8em' }}>
-                <Grid.Column>
-                  <Icon name="microsoft" size="huge"></Icon>
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row style={{ marginBottom: '8em' }}>
-                <Grid.Column>
-                  <Icon name="database" size="huge"></Icon>
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row>
-                <Grid.Column>
-                  <Icon name="php" size="huge"></Icon>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
+          <Grid.Column width="10">
+            <Header as="h3" inverted>
+              ABOUT ME
+            </Header>
+            <div style={{ color: '#696969' }}>{user?.aboutMe}</div>
+            <Header as="h3" inverted>
+              CONTACT DETAILS
+            </Header>
+            <div style={{ color: '#696969' }}>
+              {user?.firstName + ' ' + user?.lastName}
+              <br />
+              {user?.street}
+              <br />
+              {user?.city + ", " + user?.state + " " + user?.zip}
+              <br />
+              {user?.phoneNumber}
+              <br />
+              {user?.email}
+            </div>
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    </Fragment>
+    </section>
   )
 }

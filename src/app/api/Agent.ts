@@ -3,6 +3,7 @@ import { IProject, IProjectFormValues } from '../models/project'
 import { IExperience, IExperienceFormValues } from '../models/experience'
 import { IEducation, IEducationFormValues } from '../models/education'
 import { IAuthenticationFormValues, IUser, IUserFormValues } from '../models/user'
+import { ISkill, ISkillFormValues } from '../models/skill'
 
 axios.defaults.baseURL = 'http://localhost:8080'
 
@@ -86,9 +87,27 @@ const Educations = {
     axios.delete(`/api/education/${id}`).then((reponse) => reponse.data),
 }
 
+const Skills = {
+  list: (): Promise<ISkillFormValues[]> =>
+    axios.get('/api/skill').then((response) => response.data),
+
+  byId: (id: string): Promise<ISkillFormValues> =>
+    axios.get(`/api/skill/${id}`).then((response) => response.data),
+
+  insert: (values: ISkill): Promise<ISkillFormValues> =>
+    axios.post('/api/skill', values).then((response) => response.data),
+
+  update: (id: string, values: ISkill) =>
+    axios.put(`/api/skill/${id}`, values).then((response) => response.data),
+
+  delete: (id: string) =>
+    axios.delete(`/api/skill/${id}`).then((reponse) => reponse.data),
+}
+
 export default {
   Users,
   Projects,
   Experiences,
   Educations,
+  Skills
 }

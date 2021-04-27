@@ -11,6 +11,7 @@ export const TextInput: React.FC<IProps> = ({
   width,
   type,
   placeholder,
+  color,
   meta: { touched, error },
 }) => {
   return (
@@ -20,7 +21,7 @@ export const TextInput: React.FC<IProps> = ({
       type={type}
       error={touched && !!error && { content: error, pointing: 'below' }}
     >
-      <input {...input} placeholder={placeholder} />
+      <input {...input} placeholder={placeholder} style={{backgroundColor: color}} />
     </Form.Field>
   )
 }
