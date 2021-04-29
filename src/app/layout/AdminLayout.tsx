@@ -3,11 +3,11 @@ import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Container, Grid } from 'semantic-ui-react'
 import { AdminHomePage } from '../../features/Admin/AdminHomePage'
+import { SkillPage } from '../../features/Admin/Skill/SkillPage'
 import EducationPage from '../../features/Admin/Education/EducationPage'
 import ExperiencePage from '../../features/Admin/Experience/ExperiencePage'
 import ProjectPage from '../../features/Admin/Project/ProjectPage'
 import AdminNavBar from '../../features/nav/AdminNavBar'
-import { AdminContactPage } from '../../features/Admin/AdminContactPage'
 
 const AdminLayout: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const AdminLayout: React.FC = () => {
             <AdminNavBar />
           </Grid.Column>
           <Grid.Column width={13}>
-            <Container style={{ marginTop: '4em'}}>
+            <Container style={{ marginTop: '4em' }}>
               <Switch>
                 <Route exact path="/" component={AdminHomePage} />
                 <Route exact path="/project" component={ProjectPage} />
@@ -31,7 +31,8 @@ const AdminLayout: React.FC = () => {
                 />
                 <Route exact path="/education" component={EducationPage} />
                 <Route exact path="/education/:id" component={EducationPage} />
-                <Route exact path="/contact" component={AdminContactPage} />
+                <Route exact path="/skill" component={SkillPage} />
+                <Route exact path="/skill/:id" component={SkillPage} />
               </Switch>
             </Container>
           </Grid.Column>

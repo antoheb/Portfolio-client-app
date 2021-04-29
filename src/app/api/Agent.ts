@@ -2,8 +2,13 @@ import axios from 'axios'
 import { IProject, IProjectFormValues } from '../models/project'
 import { IExperience, IExperienceFormValues } from '../models/experience'
 import { IEducation, IEducationFormValues } from '../models/education'
-import { IAuthenticationFormValues, IUser, IUserFormValues } from '../models/user'
+import {
+  IAuthenticationFormValues,
+  IUser,
+  IUserFormValues,
+} from '../models/user'
 import { ISkill, ISkillFormValues } from '../models/skill'
+import { IEmail } from '../models/email'
 
 axios.defaults.baseURL = 'http://localhost:8080'
 
@@ -28,9 +33,10 @@ const Users = {
   login: (user: IAuthenticationFormValues) =>
     axios.post(`/login`, user).then((response) => response.headers),
 
-  getUser: (): Promise<IUser> => axios.get('/api/user').then((response) => response.data),
+  getUser: (): Promise<IUser> =>
+    axios.get('/api/user').then((response) => response.data),
 
-  updateUser: (id: string, values: IUserFormValues) =>
+  update: (id: string, values: IUserFormValues) =>
     axios.put(`/api/user/${id}`, values).then((response) => response.data),
 }
 
@@ -104,10 +110,16 @@ const Skills = {
     axios.delete(`/api/skill/${id}`).then((reponse) => reponse.data),
 }
 
+const Email = {
+  send: (values: IEmail) =>
+    axios.post('/api/email', values).then((response) => response.data),
+}
+
 export default {
   Users,
   Projects,
   Experiences,
   Educations,
-  Skills
+  Skills,
+  Email,
 }

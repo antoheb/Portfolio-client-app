@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react'
-import React, { useContext, useEffect } from 'react'
-import { Menu, Header, Button, Icon, Image, Dropdown } from 'semantic-ui-react'
+import React, { useContext } from 'react'
+import { Menu, Image, Dropdown } from 'semantic-ui-react'
 import { history } from '../..'
 import { RootStoreContext } from '../../app/stores/rootStore'
 
@@ -13,7 +13,7 @@ const AdminNavBar: React.FC = () => {
       <Menu.Item style={{ marginBottom: '2em' }}>
         <Image
           centered
-          src="https://media-exp1.licdn.com/dms/image/C5603AQEnyLLAR_L5Bw/profile-displayphoto-shrink_200_200/0/1542653790778?e=1623283200&v=beta&t=wQJDlO74zSOb0fZmQnV5hcaQR98zpHEkyOz-q6rfkLw"
+          src={user?.pictureUrl}
           size="small"
           circular
           style={{ marginBottom: '2em' }}
@@ -46,9 +46,9 @@ const AdminNavBar: React.FC = () => {
         onClick={() => history.push('/education')}
       />
       <Menu.Item
-        name="Contact Page"
-        icon="address book"
-        onClick={() => history.push('/contact')}
+        name="My Skills"
+        icon="idea"
+        onClick={() => history.push('/skill')}
       />
     </Menu>
   )

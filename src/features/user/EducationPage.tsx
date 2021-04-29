@@ -1,10 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Grid, Header } from 'semantic-ui-react'
+import { LoadingComponent } from '../../app/layout/LoadingComponent'
 import { RootStoreContext } from '../../app/stores/rootStore'
 
 export const EducationPage: React.FC = () => {
   const rootStore = useContext(RootStoreContext)
-  const { educationList } = rootStore.educationStore
+  const { loadEducationList, educationList } = rootStore.educationStore
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    loadEducationList().then(() => setLoading(false))
+  }, [loadEducationList, setLoading])
+
+  if (loading) {
+    return <LoadingComponent content="Loading..." />
+  }
 
   return (
     <section id="education">
@@ -12,9 +22,9 @@ export const EducationPage: React.FC = () => {
         <Grid.Row>
           <Grid.Column width="6">
             <Header
-              as="h3"
+              as="h2"
               textAlign="center"
-              style={{ textDecoration: 'underline' }}
+              style={{ textDecoration: 'underline', textDecorationColor:'orange'}}
             >
               EDUCATION
             </Header>

@@ -9,7 +9,7 @@ interface IProps {
   projectList: IProjectFormValues[]
 }
 
-const EmployeeList: React.FC<IProps> = ({ projectList }) => {
+const ProjectList: React.FC<IProps> = ({ projectList }) => {
   const rootStore = useContext(RootStoreContext)
   const { deleteProject } = rootStore.projectStore
 
@@ -48,4 +48,4 @@ const EmployeeList: React.FC<IProps> = ({ projectList }) => {
   )
 }
 
-export default observer(EmployeeList)
+export default observer(ProjectList)

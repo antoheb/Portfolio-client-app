@@ -1,7 +1,6 @@
-import React, {useContext } from 'react'
+import React, { useContext } from 'react'
 import { Image, Header, Grid } from 'semantic-ui-react'
 import { RootStoreContext } from '../../app/stores/rootStore'
-import NavBar from '../nav/NavBar'
 
 export const AboutMe: React.FC = () => {
   const rootStore = useContext(RootStoreContext)
@@ -9,31 +8,25 @@ export const AboutMe: React.FC = () => {
 
   return (
     <section id="about" style={{ backgroundColor: '#282828' }}>
-      <NavBar />
-      <Grid style={{ paddingTop: '8em', paddingBottom:'8em' }}>
+      <Grid style={{ paddingTop: '5em', paddingBottom: '5em' }}>
         <Grid.Row>
           <Grid.Column width="6">
-            <Image
-              centered
-              src="https://media-exp1.licdn.com/dms/image/C5603AQEnyLLAR_L5Bw/profile-displayphoto-shrink_200_200/0/1542653790778?e=1623283200&v=beta&t=wQJDlO74zSOb0fZmQnV5hcaQR98zpHEkyOz-q6rfkLw"
-              size="small"
-              circular
-            />
+            <Image centered src={user?.pictureUrl} size="small" circular />
           </Grid.Column>
           <Grid.Column width="10">
-            <Header as="h3" inverted>
+            <Header as="h3" inverted style={{color:'lightsalmon'}}>
               ABOUT ME
             </Header>
             <div style={{ color: '#696969' }}>{user?.aboutMe}</div>
-            <Header as="h3" inverted>
-              CONTACT DETAILS
-            </Header>
-            <div style={{ color: '#696969' }}>
+            <div style={{ color: '#696969', marginTop: '3em' }}>
+              <Header as="h3" inverted style={{color:'lightsalmon'}}>
+                CONTACT DETAILS
+              </Header>
               {user?.firstName + ' ' + user?.lastName}
               <br />
               {user?.street}
               <br />
-              {user?.city + ", " + user?.state + " " + user?.zip}
+              {user?.city + ', ' + user?.state + ' ' + user?.zip}
               <br />
               {user?.phoneNumber}
               <br />

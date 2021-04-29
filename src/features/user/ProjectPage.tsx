@@ -1,10 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Card, Header } from 'semantic-ui-react'
+import { LoadingComponent } from '../../app/layout/LoadingComponent'
 import { RootStoreContext } from '../../app/stores/rootStore'
 
 export const ProjectPage: React.FC = () => {
   const rootStore = useContext(RootStoreContext)
-  const { projectList } = rootStore.projectStore
+  const { loadProjectList, projectList } = rootStore.projectStore
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    loadProjectList().then(() => setLoading(false))
+  }, [loadProjectList, setLoading])
+
+  if (loading) {
+    return <LoadingComponent content="Loading..." />
+  }
 
   return (
     <section
@@ -16,8 +26,12 @@ export const ProjectPage: React.FC = () => {
         minHeight: '600px',
       }}
     >
-      <Header as="h2" textAlign="center">
-        My Projects
+      <Header
+        as="h2"
+        textAlign="center"
+        style={{ textDecoration: 'underline', textDecorationColor: 'orange' }}
+      >
+        MY PROJECTS
       </Header>
       <Card.Group
         itemsPerRow={3}
@@ -25,6 +39,7 @@ export const ProjectPage: React.FC = () => {
       >
         {projectList.map((project) => (
           <Card
+            color="orange"
             header={project.name}
             meta={project.gitHubLink}
             description={project.description}

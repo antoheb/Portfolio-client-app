@@ -1,10 +1,20 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment, useContext, useEffect, useState } from 'react'
 import { Grid, Header } from 'semantic-ui-react'
+import { LoadingComponent } from '../../app/layout/LoadingComponent'
 import { RootStoreContext } from '../../app/stores/rootStore'
 
 export const ExperiencePage: React.FC = () => {
   const rootStore = useContext(RootStoreContext)
-  const { experienceList } = rootStore.experienceStore
+  const { loadExperienceList, experienceList } = rootStore.experienceStore
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    loadExperienceList().then(() => setLoading(false))
+  }, [loadExperienceList, setLoading])
+
+  if (loading) {
+    return <LoadingComponent content="Loading..." />
+  }
 
   return (
     <section id="experience">
@@ -12,9 +22,9 @@ export const ExperiencePage: React.FC = () => {
         <Grid.Row>
           <Grid.Column width="6">
             <Header
-              as="h3"
+              as="h2"
               textAlign="center"
-              style={{ textDecoration: 'underline' }}
+              style={{ textDecoration: 'underline', textDecorationColor:'orange' }}
             >
               WORK
             </Header>

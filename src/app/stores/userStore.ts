@@ -6,6 +6,7 @@ import {
   IAuthentication,
   IAuthenticationFormValues,
   IUser,
+  IUserFormValues,
 } from '../models/user'
 
 export default class UserStore {
@@ -31,6 +32,18 @@ export default class UserStore {
       this.loadingInitial = false
     } catch (error) {
       this.loadingInitial = false
+      throw error
+    }
+  }
+
+  @action modifyUser = async (id: string, user: IUserFormValues) => {
+    try {
+      await Agent.Users.update(id, user)
+      runInAction(() => {
+        history.push('/')
+      })
+      window.location.reload()
+    } catch (error) {
       throw error
     }
   }
