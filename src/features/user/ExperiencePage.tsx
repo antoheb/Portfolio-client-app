@@ -36,7 +36,7 @@ export const ExperiencePage: React.FC = () => {
                   <Header as="h1">{experience.employer}</Header>
                 </div>
                 <div style={{ fontStyle: 'italic' }}>
-                  {experience.title + '  -  ' + 'ajouter les annees'}
+                  {experience.title + '  -  ' + experience.years}
                 </div>
                 <br />
                 <div>{experience.description}</div>

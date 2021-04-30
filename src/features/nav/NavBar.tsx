@@ -55,6 +55,7 @@ const NavBar: React.FC = () => {
               spy={true}
               smooth={true}
               duration={1000}
+              style={{}}
             >
               PROJECTS
             </Link>

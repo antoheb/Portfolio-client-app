@@ -15,6 +15,7 @@ const AddProjectForm: React.FC = () => {
     name: isRequired({ message: 'Name is mandantory' }),
     description: isRequired({ message: 'Description is mandantory' }),
     gitHubLink: isRequired({ message: 'Link is mandantory' }),
+    technologies: isRequired({ message: 'At least 1 technology is required' })
   })
 
   const rootStore = useContext(RootStoreContext)
@@ -66,6 +67,15 @@ const AddProjectForm: React.FC = () => {
                       <Field
                         placeholder="GitHub Link"
                         name="gitHubLink"
+                        component={TextInput}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Field
+                        placeholder="Technologies"
+                        name="technologies"
                         component={TextInput}
                       />
                     </Grid.Column>

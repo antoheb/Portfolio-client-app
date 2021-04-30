@@ -57,15 +57,6 @@ const AddEducationForm: React.FC = () => {
                   <Grid.Row>
                     <Grid.Column>
                       <Field
-                        placeholder="School Address"
-                        name="schoolAddress"
-                        component={TextInput}
-                      />
-                    </Grid.Column>
-                  </Grid.Row>
-                  <Grid.Row>
-                    <Grid.Column>
-                      <Field
                         placeholder="Years"
                         name="years"
                         component={TextInput}

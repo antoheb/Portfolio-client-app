@@ -15,3 +15,7 @@ ul#nav li a {
   text-align: left;
   color: #fff;
 }
+
+ul#nav li a:active {
+  color: #f06000;
+}

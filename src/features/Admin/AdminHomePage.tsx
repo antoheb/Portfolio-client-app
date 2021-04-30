@@ -9,6 +9,7 @@ import { IUserFormValues } from '../../app/models/user'
 import { TextInput } from '../../app/common/form/TextInput'
 import { TextAreaInput } from '../../app/common/form/TextAreaInput'
 import { ErrorMessage } from '../../app/common/form/ErrorMessage'
+import PhotoDropZone from './PhotoDropZone'
 
 export const AdminHomePage: React.FC = () => {
   const validate = combineValidators({
@@ -28,6 +29,13 @@ export const AdminHomePage: React.FC = () => {
   const rootStore = useContext(RootStoreContext)
   const { getUser, user, modifyUser } = rootStore.userStore
   const [loading, setLoading] = useState(true)
+  const [files, setFiles] = useState<any[]>([])
+
+  useEffect(() => {
+    return () => {
+      files.forEach((file) => URL.revokeObjectURL(file.preview))
+    }
+  })
 
   useEffect(() => {
     getUser().then(() => setLoading(false))
@@ -64,7 +72,14 @@ export const AdminHomePage: React.FC = () => {
           dirtySinceLastSubmit,
         }) => (
           <Form onSubmit={handleSubmit} error>
-            <Grid centered style={{marginRight:'3em', marginLeft:'3em', marginTop:'3em'}}>
+            <Grid
+              centered
+              style={{
+                marginRight: '3em',
+                marginLeft: '3em',
+                marginTop: '3em',
+              }}
+            >
               <Grid.Row columns="3">
                 <Grid.Column>
                   <Field

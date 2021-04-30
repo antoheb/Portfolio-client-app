@@ -19,7 +19,6 @@ const EducationList: React.FC<IProps> = ({ educationList }) => {
       <Table celled selectable>
         <Table.Header>
           <Table.HeaderCell>School Name</Table.HeaderCell>
-          <Table.HeaderCell>School Address</Table.HeaderCell>
           <Table.HeaderCell>Years</Table.HeaderCell>
           <Table.HeaderCell>Program Enrolled</Table.HeaderCell>
           <Table.HeaderCell>Description</Table.HeaderCell>
@@ -29,7 +28,6 @@ const EducationList: React.FC<IProps> = ({ educationList }) => {
           {educationList.map((edu) => (
             <Table.Row>
               <Table.Cell>{edu.schoolName}</Table.Cell>
-              <Table.Cell>{edu.schoolAddress}</Table.Cell>
               <Table.Cell>{edu.years}</Table.Cell>
               <Table.Cell>{edu.program}</Table.Cell>
               <Table.Cell>{edu.description}</Table.Cell>

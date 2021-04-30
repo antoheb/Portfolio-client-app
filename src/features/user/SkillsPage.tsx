@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState } from 'react'
 import { Grid, Header, Progress } from 'semantic-ui-react'
 import { LoadingComponent } from '../../app/layout/LoadingComponent'
 import { RootStoreContext } from '../../app/stores/rootStore'
@@ -24,7 +24,10 @@ export const SkillsPage: React.FC = () => {
             <Header
               as="h2"
               textAlign="center"
-              style={{ textDecoration: 'underline', textDecorationColor:'orange' }}
+              style={{
+                textDecoration: 'underline',
+                textDecorationColor: 'orange',
+              }}
             >
               SKILLS
             </Header>
@@ -37,8 +40,8 @@ export const SkillsPage: React.FC = () => {
                   value={skill.progress}
                   total="100"
                   progress="percent"
+                  color="orange"
                   size="big"
-                  color="black"
                 />
               </div>
             ))}

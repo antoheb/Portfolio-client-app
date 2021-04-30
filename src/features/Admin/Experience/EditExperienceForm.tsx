@@ -21,6 +21,7 @@ const EditExperienceForm: React.FC<IProps> = ({ experience, id }) => {
     title: isRequired({ message: 'Title is mandantory' }),
     description: isRequired({ message: 'Description is mandantory' }),
     employer: isRequired({ message: 'Employer is mandantory' }),
+    years: isRequired({ message: 'Years are mandantory' }),
   })
 
   const rootStore = useContext(RootStoreContext)
@@ -73,6 +74,15 @@ const EditExperienceForm: React.FC<IProps> = ({ experience, id }) => {
                       <Field
                         placeholder="Name of your employer (company)"
                         name="employer"
+                        component={TextInput}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Field
+                        placeholder="Years of employement"
+                        name="years"
                         component={TextInput}
                       />
                     </Grid.Column>

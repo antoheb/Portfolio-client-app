@@ -14,21 +14,31 @@ const ProjectList: React.FC<IProps> = ({ projectList }) => {
   const { deleteProject } = rootStore.projectStore
 
   return (
-    <Segment style={{marginTop:'4em'}}>
+    <Segment style={{ marginTop: '4em' }}>
       <Header as="h3">Projects Board</Header>
       <Table celled selectable>
         <Table.Header>
           <Table.HeaderCell>Name</Table.HeaderCell>
           <Table.HeaderCell>Description</Table.HeaderCell>
           <Table.HeaderCell>GitHubLink</Table.HeaderCell>
+          <Table.HeaderCell>Technologies</Table.HeaderCell>
           <Table.HeaderCell>Action</Table.HeaderCell>
         </Table.Header>
         <Table.Body>
           {projectList.map((proj) => (
             <Table.Row>
-              <Table.Cell>{proj.name}</Table.Cell>
-              <Table.Cell>{proj.description}</Table.Cell>
+              <Table.Cell width="2">{proj.name}</Table.Cell>
+              <Table.Cell width='6'>{proj.description}</Table.Cell>
               <Table.Cell>{proj.gitHubLink}</Table.Cell>
+              <Table.Cell>
+                {
+                  <ul>
+                    {proj.technologies.split(',').map((technology) => (
+                      <li>{technology}</li>
+                    ))}
+                  </ul>
+                }
+              </Table.Cell>
               <Table.Cell>
                 <Button
                   icon="edit"

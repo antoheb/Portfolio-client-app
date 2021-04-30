@@ -41,23 +41,23 @@ export const ContactPage: React.FC = () => {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column width={3}>
-            <Header as="h4" style={{ color: 'lightsalmon' }}>
-              Name*
+            <Header inverted as="h4">
+              Name<span style={{color:'lightsalmon'}}>*</span>
             </Header>
             <br />
             <br />
-            <Header as="h4" style={{ color: 'lightsalmon' }}>
-              Email*
+            <Header inverted as="h4">
+              Email<span style={{color:'lightsalmon'}}>*</span>
             </Header>
             <br />
             <br />
-            <Header as="h4" style={{ color: 'lightsalmon' }}>
-              Subject*
+            <Header inverted as="h4">
+              Subject<span style={{color:'lightsalmon'}}>*</span>
             </Header>
             <br />
             <br />
-            <Header as="h4" style={{ color: 'lightsalmon' }}>
-              Message*
+            <Header inverted as="h4">
+              Message<span style={{color:'lightsalmon'}}>*</span>
             </Header>
             <br />
             <br />
@@ -98,7 +98,7 @@ export const ContactPage: React.FC = () => {
                     inverted
                     size='big'
                     type="submit"
-                    content="SUBMIT"
+                    content="Submit"
                   />
                 </Form>
               )}

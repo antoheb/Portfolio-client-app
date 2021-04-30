@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Card, Header } from 'semantic-ui-react'
+import { Card, Header, Icon } from 'semantic-ui-react'
 import { LoadingComponent } from '../../app/layout/LoadingComponent'
 import { RootStoreContext } from '../../app/stores/rootStore'
 
@@ -35,15 +35,25 @@ export const ProjectPage: React.FC = () => {
       </Header>
       <Card.Group
         itemsPerRow={3}
-        style={{ marginLeft: '14em', marginRight: '14em', marginTop: '2em' }}
+        style={{ marginLeft: '10em', marginRight: '10em', marginTop: '2em' }}
       >
         {projectList.map((project) => (
-          <Card
-            color="orange"
-            header={project.name}
-            meta={project.gitHubLink}
-            description={project.description}
-          />
+          <Card color='orange'>
+            <Card.Content>
+              <Card.Header>{project.name}<a href={project.gitHubLink} style={{color:'black'}}><Icon link name='github' style={{float:'right'}} /></a></Card.Header>
+            </Card.Content>
+            <Card.Content style={{minHeight:'80px'}} description={project.description} />
+            <Card.Content extra>
+              <div style={{minHeight:'100px'}}>
+              <Header as="h4">Project Language/Framework/etc</Header>
+              <ul>
+                {project.technologies.split(',').map((technology) => (
+                  <li>{technology}</li>
+                ))}
+              </ul>
+              </div>
+            </Card.Content>
+          </Card>
         ))}
       </Card.Group>
     </section>

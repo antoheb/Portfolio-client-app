@@ -21,6 +21,7 @@ interface IProps {
             <Table.HeaderCell>Title</Table.HeaderCell>
             <Table.HeaderCell>Description</Table.HeaderCell>
             <Table.HeaderCell>Employer</Table.HeaderCell>
+            <Table.HeaderCell>Years</Table.HeaderCell>
             <Table.HeaderCell>Action</Table.HeaderCell>
           </Table.Header>
           <Table.Body>
@@ -29,6 +30,7 @@ interface IProps {
                 <Table.Cell>{exp.title}</Table.Cell>
                 <Table.Cell>{exp.description}</Table.Cell>
                 <Table.Cell>{exp.employer}</Table.Cell>
+                <Table.Cell>{exp.years}</Table.Cell>
                 <Table.Cell>
                 <Button icon="edit" onClick={() => history.push(`/experience/${exp.id}`)}/>
                 <Button icon="trash" color="red" onClick={() => deleteExperience(exp.id)}/>

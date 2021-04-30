@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import NavBar from '../nav/NavBar'
 import { AboutMe } from './AboutMe'
 import { ContactPage } from './ContactPage'
 import { EducationPage } from './EducationPage'
@@ -11,6 +12,7 @@ import { SkillsPage } from './SkillsPage'
 export const Portfolio: React.FC = () => {
   return (
     <Fragment>
+      <NavBar />
       <HomePage />
       <AboutMe />
       <EducationPage />
