@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react'
-import React, { Fragment, useContext, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Container, Grid } from 'semantic-ui-react'
 import { AdminHomePage } from '../../features/Admin/AdminHomePage'

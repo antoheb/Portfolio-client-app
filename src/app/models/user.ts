@@ -20,7 +20,7 @@ export interface IUser {
     zip: string;
     email: string;
     phoneNumber: string;
-    pictureUrl: string;
+    photoUrl: String;
 }
 
 export interface IUserFormValues
@@ -35,5 +35,5 @@ export interface IUserFormValues
     zip: string;
     email: string;
     phoneNumber: string;
-    pictureUrl: string;
+    photoUrl: String;
 }

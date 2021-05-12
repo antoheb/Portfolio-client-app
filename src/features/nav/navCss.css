@@ -16,6 +16,6 @@ ul#nav li a {
   color: #fff;
 }
 
-ul#nav li a:active {
+ul#nav li a:hover {
   color: #f06000;
 }

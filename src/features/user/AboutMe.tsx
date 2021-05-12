@@ -11,7 +11,7 @@ export const AboutMe: React.FC = () => {
       <Grid style={{ paddingTop: '5em', paddingBottom: '5em' }}>
         <Grid.Row>
           <Grid.Column width="6">
-            <Image centered src={user?.pictureUrl} size="small" circular />
+            <Image centered src={`data:image/jpeg;base64,${user?.photoUrl}`} size="small" circular />
           </Grid.Column>
           <Grid.Column width="10">
             <Header as="h3" inverted style={{color:'lightsalmon'}}>

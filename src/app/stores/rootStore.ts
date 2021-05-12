@@ -6,6 +6,7 @@ import EducationStore from './educationStore'
 import ProjectStore from './projectStore'
 import CommonStore from './commonStore'
 import SkillStore from './skillStore'
+import ModalStore from './modalStore'
 
 configure({ enforceActions: 'always' })
 
@@ -16,6 +17,7 @@ export class RootStore {
   projectStore: ProjectStore
   commonStore: CommonStore
   skillStore: SkillStore
+  modalStore: ModalStore
 
   constructor() {
     this.userStore = new UserStore(this)
@@ -24,6 +26,7 @@ export class RootStore {
     this.projectStore = new ProjectStore(this)
     this.commonStore = new CommonStore(this)
     this.skillStore = new SkillStore(this)
+    this.modalStore = new ModalStore(this)
   }
 }
 

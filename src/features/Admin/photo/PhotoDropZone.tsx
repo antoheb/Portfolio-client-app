@@ -4,14 +4,14 @@ import { useDropzone } from 'react-dropzone'
 import { Button } from 'semantic-ui-react'
 
 interface IProps {
-  setFiles: (files: object[]) => void
+  setFiles: (files: any) => void
 }
 
 const PhotoDropZone: React.FC<IProps> = ({ setFiles }) => {
   const onDrop = useCallback(
     (acceptedFiles) => {
       setFiles(
-        acceptedFiles.map((file: object) =>
+        acceptedFiles.map((file: any) =>
           Object.assign(file, {
             preview: URL.createObjectURL(file),
           }),
@@ -20,12 +20,12 @@ const PhotoDropZone: React.FC<IProps> = ({ setFiles }) => {
     },
     [setFiles],
   )
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+  const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
-      <Button content="Choose file" style={{ marginTop: '10px' }} />
+      <Button fluid content="Choose file" />
     </div>
   )
 }

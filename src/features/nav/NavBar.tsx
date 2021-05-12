@@ -6,75 +6,34 @@ import './navCss.css'
 const NavBar: React.FC = () => {
   return (
     <nav id="nav-wrap">
-      <div style={{marginLeft:'30%'}}>
-      <ul id="nav" className="nav">
-        <li className="current">
-          <a href="#home">
-            <Link
-              activeClass="active"
-              to="home"
-              spy={true}
-              smooth={true}
-              duration={1000}
-            >
-              HOME
+      <div style={{ marginLeft: '30%' }}>
+        <ul id="nav" className="nav">
+          <li>
+            <Link to="home" spy={true} smooth={true} duration={1500}>
+              <a href=" ">HOME</a>
             </Link>
-          </a>
-        </li>
-        <li>
-          <a href="#about">
-            <Link
-              activeClass="active"
-              to="about"
-              spy={true}
-              smooth={true}
-              duration={1000}
-            >
-              ABOUT
+          </li>
+          <li>
+            <Link to="about" spy={true} smooth={true} duration={1500}>
+              <a href=" ">ABOUT</a>
             </Link>
-          </a>
-        </li>
-        <li>
-          <a href="#experience">
-            <Link
-              activeClass="active"
-              to="experience"
-              spy={true}
-              smooth={true}
-              duration={1000}
-            >
-              EXPERIENCE
+          </li>
+          <li>
+            <Link to="experience" spy={true} smooth={true} duration={1500}>
+              <a href=" ">EXPERIENCE</a>
             </Link>
-          </a>
-        </li>
-        <li>
-          <a href="#project">
-            <Link
-              activeClass="active"
-              to="project"
-              spy={true}
-              smooth={true}
-              duration={1000}
-              style={{}}
-            >
-              PROJECTS
+          </li>
+          <li>
+            <Link to="project" spy={true} smooth={true} duration={1500}>
+              <a href=" ">PROJECTS</a>
             </Link>
-          </a>
-        </li>
-        <li>
-          <a href="#contact">
-            <Link
-              activeClass="active"
-              to="contact"
-              spy={true}
-              smooth={true}
-              duration={1000}
-            >
-              CONTACT
+          </li>
+          <li>
+            <Link to="contact" spy={true} smooth={true} duration={1500}>
+              <a href=" ">CONTACT</a>
             </Link>
-          </a>
-        </li>
-      </ul>
+          </li>
+        </ul>
       </div>
     </nav>
   )

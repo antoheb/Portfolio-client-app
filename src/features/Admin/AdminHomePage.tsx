@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react'
-import { Button, Card, Form, Grid, Header, Icon } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Icon } from 'semantic-ui-react'
 import { LoadingComponent } from '../../app/layout/LoadingComponent'
 import { RootStoreContext } from '../../app/stores/rootStore'
 import { Field, Form as FinalForm } from 'react-final-form'
@@ -9,7 +9,6 @@ import { IUserFormValues } from '../../app/models/user'
 import { TextInput } from '../../app/common/form/TextInput'
 import { TextAreaInput } from '../../app/common/form/TextAreaInput'
 import { ErrorMessage } from '../../app/common/form/ErrorMessage'
-import PhotoDropZone from './PhotoDropZone'
 
 export const AdminHomePage: React.FC = () => {
   const validate = combineValidators({
@@ -29,13 +28,6 @@ export const AdminHomePage: React.FC = () => {
   const rootStore = useContext(RootStoreContext)
   const { getUser, user, modifyUser } = rootStore.userStore
   const [loading, setLoading] = useState(true)
-  const [files, setFiles] = useState<any[]>([])
-
-  useEffect(() => {
-    return () => {
-      files.forEach((file) => URL.revokeObjectURL(file.preview))
-    }
-  })
 
   useEffect(() => {
     getUser().then(() => setLoading(false))
@@ -138,7 +130,7 @@ export const AdminHomePage: React.FC = () => {
                   />
                 </Grid.Column>
               </Grid.Row>
-              <Grid.Row columns="3">
+              <Grid.Row columns="2">
                 <Grid.Column>
                   <Field
                     placeholder="Email"
@@ -150,13 +142,6 @@ export const AdminHomePage: React.FC = () => {
                   <Field
                     placeholder="Phone Number"
                     name="phoneNumber"
-                    component={TextInput}
-                  />
-                </Grid.Column>
-                <Grid.Column>
-                  <Field
-                    placeholder="Picture"
-                    name="pictureUrl"
                     component={TextInput}
                   />
                 </Grid.Column>

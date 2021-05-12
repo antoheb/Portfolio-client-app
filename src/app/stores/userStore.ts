@@ -3,7 +3,6 @@ import { history } from '../..'
 import Agent from '../api/Agent'
 import { RootStore } from './rootStore'
 import {
-  IAuthentication,
   IAuthenticationFormValues,
   IUser,
   IUserFormValues,
@@ -74,5 +73,19 @@ export default class UserStore {
       throw error
     }
     this.loadingInitial = false
+  }
+
+  @action uploadPhoto = async (id: string, file: File) => {
+    this.loadingInitial = true
+    try {
+      await Agent.Users.uploadPhoto(id, file)
+      runInAction(() => {
+        window.alert('Profile Picture Modified')
+        window.location.reload()
+      })
+    } catch (error) {
+      window.alert("Erreur lors du téléchargemnt de l'image")
+      runInAction(() => (this.loadingInitial = false))
+    }
   }
 }

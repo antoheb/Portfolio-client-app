@@ -9,7 +9,7 @@ const UserLayout: React.FC = () => {
     <Fragment>
       <Switch>
         <Route exact path="/" component={Portfolio} />
-        <Route path="/admin/special/login" component={LoginForm} />
+        <Route path="/admin/secret/login" component={LoginForm} />
       </Switch>
     </Fragment>
   )

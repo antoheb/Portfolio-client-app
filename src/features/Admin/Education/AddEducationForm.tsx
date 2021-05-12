@@ -13,7 +13,6 @@ import { TextAreaInput } from '../../../app/common/form/TextAreaInput';
 const AddEducationForm: React.FC = () => {
   const validate = combineValidators({
     schoolName: isRequired({ message: 'School name is mandantory' }),
-    schoolAddress: isRequired({ message: 'School Address is mandantory' }),
     years: isRequired({ message: 'Years is mandantory' }),
     program: isRequired({ message: 'The program enrolled is mandantory' }),
     description: isRequired({ message: 'Description is mandantory' }),

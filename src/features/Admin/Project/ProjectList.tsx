@@ -39,7 +39,7 @@ const ProjectList: React.FC<IProps> = ({ projectList }) => {
                   </ul>
                 }
               </Table.Cell>
-              <Table.Cell>
+              <Table.Cell width={2}>
                 <Button
                   icon="edit"
                   onClick={() => history.push(`/project/${proj.id}`)}

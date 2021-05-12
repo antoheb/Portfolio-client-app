@@ -1,5 +1,4 @@
 import { action, makeObservable, observable, reaction, runInAction } from 'mobx'
-import { history } from '../..'
 import Agent from '../api/Agent'
 import { IEmail } from '../models/email'
 import { RootStore } from './rootStore'
@@ -38,8 +37,8 @@ export default class CommonStore {
     try {
       Agent.Email.send(values)
       runInAction(() => {
-        window.location.reload()
         alert('Your email was send succesfully')
+        window.location.reload()
       })
     } catch (error) {
       throw error

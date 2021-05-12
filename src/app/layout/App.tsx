@@ -5,6 +5,7 @@ import React, { Fragment, useContext, useEffect, useState } from 'react'
 import AdminLayout from './AdminLayout'
 import { RootStoreContext } from '../stores/rootStore'
 import { LoadingComponent } from './LoadingComponent'
+import { ModalContainer } from '../common/modals/ModalContainer'
 
 const App: React.FC = () => {
   const rootStore = useContext(RootStoreContext)
@@ -20,7 +21,12 @@ const App: React.FC = () => {
     return <LoadingComponent content="Loading..." />
   }
 
-  return <Fragment>{!token ? <UserLayout /> : <AdminLayout />}</Fragment>
+  return (
+    <Fragment>
+      <ModalContainer />
+      {!token ? <UserLayout /> : <AdminLayout />}
+    </Fragment>
+  )
 }
 
 export default observer(App)

@@ -31,7 +31,7 @@ interface IProps {
                 <Table.Cell>{exp.description}</Table.Cell>
                 <Table.Cell>{exp.employer}</Table.Cell>
                 <Table.Cell>{exp.years}</Table.Cell>
-                <Table.Cell>
+                <Table.Cell width={2}>
                 <Button icon="edit" onClick={() => history.push(`/experience/${exp.id}`)}/>
                 <Button icon="trash" color="red" onClick={() => deleteExperience(exp.id)}/>
               </Table.Cell>
