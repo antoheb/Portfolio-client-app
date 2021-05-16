@@ -28,7 +28,8 @@ const AdminNavBar: React.FC = () => {
           onMouseLeave={() => setActive(false)}
           centered
           src={`data:image/jpeg;base64,${user?.photoUrl}`}
-          size="small"
+          width={150}
+          height={150}
           circular
           style={{ marginBottom: '2em' }}
         />

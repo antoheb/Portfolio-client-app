@@ -11,15 +11,21 @@ export const AboutMe: React.FC = () => {
       <Grid style={{ paddingTop: '5em', paddingBottom: '5em' }}>
         <Grid.Row>
           <Grid.Column width="6">
-            <Image centered src={`data:image/jpeg;base64,${user?.photoUrl}`} size="small" circular />
+            <Image
+              centered
+              src={`data:image/jpeg;base64,${user?.photoUrl}`}
+              width={150}
+              height={150}
+              circular
+            />
           </Grid.Column>
           <Grid.Column width="10">
-            <Header as="h3" inverted style={{color:'lightsalmon'}}>
+            <Header as="h3" inverted style={{ color: 'lightsalmon' }}>
               ABOUT ME
             </Header>
             <div style={{ color: '#696969' }}>{user?.aboutMe}</div>
             <div style={{ color: '#696969', marginTop: '3em' }}>
-              <Header as="h3" inverted style={{color:'lightsalmon'}}>
+              <Header as="h3" inverted style={{ color: 'lightsalmon' }}>
                 CONTACT DETAILS
               </Header>
               {user?.firstName + ' ' + user?.lastName}
