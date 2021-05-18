@@ -38,19 +38,29 @@ export const ProjectPage: React.FC = () => {
         style={{ marginLeft: '10em', marginRight: '10em', marginTop: '2em' }}
       >
         {projectList.map((project) => (
-          <Card color='orange'>
+          <Card color="orange">
             <Card.Content>
-              <Card.Header>{project.name}<a href={project.gitHubLink} style={{color:'black'}}><Icon link name='github' style={{float:'right'}} /></a></Card.Header>
+              <Card.Header>
+                {project.name}
+                {project.gitHubLink && (
+                  <a href={project.gitHubLink} style={{ color: 'black' }}>
+                    <Icon link name="github" style={{ float: 'right' }} />
+                  </a>
+                )}
+              </Card.Header>
             </Card.Content>
-            <Card.Content style={{minHeight:'80px'}} description={project.description} />
+            <Card.Content
+              style={{ minHeight: '150px' }}
+              description={project.description}
+            />
             <Card.Content extra>
-              <div style={{minHeight:'100px'}}>
-              <Header as="h4">Project Language/Framework/etc</Header>
-              <ul>
-                {project.technologies.split(',').map((technology) => (
-                  <li>{technology}</li>
-                ))}
-              </ul>
+              <div style={{ minHeight: '120px' }}>
+                <Header as="h4">Project Language/Framework/etc</Header>
+                <ul>
+                  {project.technologies.split(',').map((technology) => (
+                    <li>{technology}</li>
+                  ))}
+                </ul>
               </div>
             </Card.Content>
           </Card>

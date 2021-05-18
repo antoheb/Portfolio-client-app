@@ -20,7 +20,6 @@ const EditProjectForm: React.FC<IProps> = ({ project, id }) => {
   const validate = combineValidators({
     name: isRequired({ message: 'Name is mandantory' }),
     description: isRequired({ message: 'Description is mandantory' }),
-    gitHubLink: isRequired({ message: 'Link is mandantory' }),
     technologies: isRequired({ message: 'At least 1 technology is required' })
   })
 

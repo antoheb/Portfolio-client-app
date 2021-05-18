@@ -21,8 +21,7 @@ export const AdminHomePage: React.FC = () => {
     state: isRequired({ message: 'State is mandantory' }),
     zip: isRequired({ message: 'Postal code is mandantory' }),
     email: isRequired({ message: 'Email is mandantory' }),
-    phoneNumber: isRequired({ message: 'Phone Number is mandantory' }),
-    pictureUrl: isRequired({ message: 'Picture url is mandantory' }),
+    phoneNumber: isRequired({ message: 'Phone Number is mandantory' })
   })
 
   const rootStore = useContext(RootStoreContext)

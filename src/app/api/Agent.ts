@@ -42,7 +42,7 @@ const Users = {
   uploadPhoto: (id: string, file: File) => {
     let formData = new FormData();
     formData.append("file", file)
-    axios.put(`/api/user/photo/${id}`, formData, {headers: {'Content-Type': 'multipart/form-data'}}).then((response) => response.data)},
+    axios.put('/api/user/photo', formData, {headers: {'Content-Type': 'multipart/form-data'}}).then((response) => response.data)},
 }
 
 const Projects = {
