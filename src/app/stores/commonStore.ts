@@ -33,9 +33,9 @@ export default class CommonStore {
     this.appLoaded = true
   }
 
-  @action sendEmail = (values: IEmail) => {
+  @action sendEmail = async (values: IEmail) => {
     try {
-      Agent.Email.send(values)
+      await Agent.Email.send(values)
       runInAction(() => {
         alert('Your email was send succesfully')
         window.location.reload()

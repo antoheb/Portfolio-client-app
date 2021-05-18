@@ -42,22 +42,22 @@ export const ContactPage: React.FC = () => {
         <Grid.Row>
           <Grid.Column width={3}>
             <Header inverted as="h4">
-              Name<span style={{color:'lightsalmon'}}>*</span>
+              Name<span style={{ color: 'lightsalmon' }}>*</span>
             </Header>
             <br />
             <br />
             <Header inverted as="h4">
-              Email<span style={{color:'lightsalmon'}}>*</span>
+              Email<span style={{ color: 'lightsalmon' }}>*</span>
             </Header>
             <br />
             <br />
             <Header inverted as="h4">
-              Subject<span style={{color:'lightsalmon'}}>*</span>
+              Subject<span style={{ color: 'lightsalmon' }}>*</span>
             </Header>
             <br />
             <br />
             <Header inverted as="h4">
-              Message<span style={{color:'lightsalmon'}}>*</span>
+              Message<span style={{ color: 'lightsalmon' }}>*</span>
             </Header>
             <br />
             <br />
@@ -96,7 +96,7 @@ export const ContactPage: React.FC = () => {
                     disabled={(invalid && !dirtySinceLastSubmit) || pristine}
                     color="orange"
                     inverted
-                    size='big'
+                    size="big"
                     type="submit"
                     content="Submit"
                   />
