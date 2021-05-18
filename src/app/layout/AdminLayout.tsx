@@ -18,7 +18,7 @@ const AdminLayout: React.FC = () => {
             <AdminNavBar />
           </Grid.Column>
           <Grid.Column width={13}>
-            <Container style={{ marginTop: '4em' }}>
+            <Container fluid style={{ marginTop: '4em' }}>
               <Switch>
                 <Route exact path="/" component={AdminHomePage} />
                 <Route exact path="/project" component={ProjectPage} />

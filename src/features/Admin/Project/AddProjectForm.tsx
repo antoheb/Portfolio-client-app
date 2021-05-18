@@ -73,6 +73,15 @@ const AddProjectForm: React.FC = () => {
                   <Grid.Row>
                     <Grid.Column>
                       <Field
+                        placeholder="Project Link"
+                        name="projectLink"
+                        component={TextInput}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Field
                         placeholder="Technologies"
                         name="technologies"
                         component={TextInput}

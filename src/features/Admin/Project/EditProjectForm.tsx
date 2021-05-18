@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react'
-import React, { useContext } from 'react'
+import React, {useContext } from 'react'
 import { combineValidators, isRequired } from 'revalidate'
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { ErrorMessage } from '../../../app/common/form/ErrorMessage'
@@ -73,6 +73,15 @@ const EditProjectForm: React.FC<IProps> = ({ project, id }) => {
                       <Field
                         placeholder="GitHub Link"
                         name="gitHubLink"
+                        component={TextInput}
+                      />
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Field
+                        placeholder="Project Link"
+                        name="projectLink"
                         component={TextInput}
                       />
                     </Grid.Column>

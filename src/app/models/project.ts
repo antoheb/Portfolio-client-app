@@ -2,6 +2,7 @@ export interface IProject {
     name: string;
     description: string;
     gitHubLink: string;
+    projectLink: string;
     technologies: string;
 }
 
@@ -11,5 +12,6 @@ export interface IProjectFormValues
     name: string;
     description: string;
     gitHubLink: string;
+    projectLink: string;
     technologies: string;
 }

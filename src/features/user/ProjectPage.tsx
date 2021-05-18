@@ -47,6 +47,11 @@ export const ProjectPage: React.FC = () => {
                     <Icon link name="github" style={{ float: 'right' }} />
                   </a>
                 )}
+                {project.projectLink && (
+                  <a href={project.projectLink} style={{ color: 'black' }}>
+                    <Icon link name="home" style={{ float: 'right' }} />
+                  </a>
+                )}
               </Card.Header>
             </Card.Content>
             <Card.Content

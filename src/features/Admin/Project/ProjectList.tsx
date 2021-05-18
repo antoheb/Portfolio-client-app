@@ -20,7 +20,8 @@ const ProjectList: React.FC<IProps> = ({ projectList }) => {
         <Table.Header>
           <Table.HeaderCell>Name</Table.HeaderCell>
           <Table.HeaderCell>Description</Table.HeaderCell>
-          <Table.HeaderCell>GitHubLink</Table.HeaderCell>
+          <Table.HeaderCell>GitHub Link</Table.HeaderCell>
+          <Table.HeaderCell>Project Link</Table.HeaderCell>
           <Table.HeaderCell>Technologies</Table.HeaderCell>
           <Table.HeaderCell>Action</Table.HeaderCell>
         </Table.Header>
@@ -30,6 +31,7 @@ const ProjectList: React.FC<IProps> = ({ projectList }) => {
               <Table.Cell width="2">{proj.name}</Table.Cell>
               <Table.Cell width='6'>{proj.description}</Table.Cell>
               <Table.Cell>{proj.gitHubLink}</Table.Cell>
+              <Table.Cell>{proj.projectLink}</Table.Cell>
               <Table.Cell>
                 {
                   <ul>
